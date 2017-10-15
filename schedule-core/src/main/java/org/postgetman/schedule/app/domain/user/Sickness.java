@@ -1,12 +1,18 @@
 package org.postgetman.schedule.app.domain.user;
 
-import org.postgetman.schedule.app.domain.BaseEntity;
-
 import java.util.List;
 
-public class Sickness extends BaseEntity{
+public class Sickness {
 
     private String name;
 
     private List<User> userList;
+
+    public Sickness(){
+
+    }
+
+    public Sickness(final String name){
+        this.name = name;
+    }
 }

@@ -1,6 +1,6 @@
 package org.postgetman.schedule.app.domain;
 
-public class BaseEntity {
+public class SuperEntity {
 
     private Long id;
 

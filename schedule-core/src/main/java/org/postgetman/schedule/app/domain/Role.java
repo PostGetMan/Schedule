@@ -4,7 +4,7 @@ import org.postgetman.schedule.app.domain.user.User;
 
 import java.util.List;
 
-public class Role extends BaseEntity{
+public class Role extends SuperEntity{
 
     private String name;
 

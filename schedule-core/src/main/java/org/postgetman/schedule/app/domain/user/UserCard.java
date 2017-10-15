@@ -1,11 +1,11 @@
 package org.postgetman.schedule.app.domain.user;
 
-import org.postgetman.schedule.app.domain.BaseEntity;
+import org.postgetman.schedule.app.domain.SuperEntity;
 
 import java.time.LocalDate;
 import java.util.Set;
 
-public class UserCard extends BaseEntity {
+public class UserCard extends SuperEntity{
 
     private User user;
 

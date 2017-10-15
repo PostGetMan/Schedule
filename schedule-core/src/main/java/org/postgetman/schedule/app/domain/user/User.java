@@ -1,11 +1,11 @@
 package org.postgetman.schedule.app.domain.user;
 
-import org.postgetman.schedule.app.domain.BaseEntity;
 import org.postgetman.schedule.app.domain.Role;
+import org.postgetman.schedule.app.domain.SuperEntity;
 
 import java.util.Set;
 
-public class User extends BaseEntity{
+public class User extends SuperEntity{
 
     private String login;
 
@@ -20,6 +20,7 @@ public class User extends BaseEntity{
     }
 
     public User(final String login,final String password){
-
+        this.login = login;
+        this.password = password;
     }
 }

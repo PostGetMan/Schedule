@@ -1,11 +1,12 @@
 package org.postgetman.schedule.app.domain.schedule;
 
 import org.postgetman.schedule.app.domain.Day;
+import org.postgetman.schedule.app.domain.SuperEntity;
 
 import java.time.LocalTime;
 import java.util.List;
 
-public class Schedule {
+public class Schedule extends SuperEntity{
 
     private Day day;
 
