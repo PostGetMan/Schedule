@@ -27,7 +27,6 @@ public class UserCard extends SuperEntity{
 
     public UserCard(final String firstName,final String lastName,LocalDate birthday){
         this.firstName = firstName;
-        this.lastName = lastName;
         this.birthday = birthday;
     }
 

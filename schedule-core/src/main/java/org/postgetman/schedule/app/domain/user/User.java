@@ -21,9 +21,9 @@ public class User extends SuperEntity{
 
     }
 
-    public User(final String login,final String password){
+    public User(final String login,final String email){
         this.login = login;
-        this.password = password;
+        this.email = email;
     }
 
     public String getLogin() {
@@ -54,10 +54,6 @@ public class User extends SuperEntity{
         return userCard;
     }
 
-    public void setUserCard(UserCard userCard) {
-        this.userCard = userCard;
-    }
-
     public Set<Role> getRoles() {
         return roles;
     }
@@ -65,4 +61,11 @@ public class User extends SuperEntity{
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public void fillMedicalCard(UserCard card){
+        if(card != null){
+            this.userCard = card;
+        }
+    }
+
 }
