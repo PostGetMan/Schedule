@@ -7,6 +7,8 @@ import java.time.LocalTime;
 
 public class Record extends SuperEntity{
 
+    private Schedule schedule;
+
     private User patient;
 
     private LocalTime time;
@@ -15,8 +17,17 @@ public class Record extends SuperEntity{
 
     }
 
-    public Record(User patient){
+    public Record(User patient,LocalTime time){
         this.patient = patient;
+        this.time = time;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     public User getPatient() {

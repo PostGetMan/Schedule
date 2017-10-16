@@ -13,6 +13,8 @@ public class User extends SuperEntity{
 
     private String email;
 
+    private UserCard userCard;
+
     private Set<Role> roles;
 
     public User(){
@@ -46,6 +48,14 @@ public class User extends SuperEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserCard getUserCard() {
+        return userCard;
+    }
+
+    public void setUserCard(UserCard userCard) {
+        this.userCard = userCard;
     }
 
     public Set<Role> getRoles() {
