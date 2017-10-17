@@ -1,12 +1,10 @@
 package org.postgetman.schedule.app.controller;
 
 import org.postgetman.schedule.app.domain.user.User;
+import org.postgetman.schedule.app.dto.UserDTO;
 import org.postgetman.schedule.app.service.UserService;
 import org.postgetman.schedule.app.service.impl.UserServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping
-    public void save(){
+    public void save(@RequestBody UserDTO userDTO){
 
     }
 
