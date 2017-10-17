@@ -5,7 +5,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class SchedInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
     @Override
-    protected Class<?>[] getRootConfigClasses() { return new Class[]{RootContextConfiguration.class};
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{RootContextConfiguration.class};
     }
 
     @Override
