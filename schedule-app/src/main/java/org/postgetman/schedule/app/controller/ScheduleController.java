@@ -24,4 +24,9 @@ public class ScheduleController extends BaseController{
         service.createSchedule(new Schedule(scheduleDTO.getDate(),scheduleDTO.getTimeFrom(),scheduleDTO.getTimeTo()));
     }
 
+    @GetMapping("/{date}")
+    public Schedule findByDate(@PathVariable("date")String date){
+        return service.findByDate(date);
+    }
+
 }

@@ -9,11 +9,11 @@ public interface ScheduleService {
 
     List<Schedule> findAll();
 
-    List<Schedule> findByDate(final String date);
+    Schedule findByDate(final String date);
 
     Schedule findOne(Long id);
 
-//    List<Schedule> findByDate(LocalDate date);
+    Schedule findByDate(LocalDate date);
 
     void createSchedule(Schedule schedule);
 

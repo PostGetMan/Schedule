@@ -31,8 +31,12 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
-    public List<Schedule> findByDate(String date) {
-        List<Schedule> scheduleList = new ArrayList<>();
+    public Schedule findByDate(LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public Schedule findByDate(String date) {
 
         String year = date.substring(0,4);
         String month = date.substring(5,7);
@@ -42,10 +46,10 @@ public class ScheduleServiceImpl implements ScheduleService{
             if(schedule.getDate().getYear() == Integer.parseInt(year) &&
                     schedule.getDate().getMonthValue() == Integer.parseInt(month)
                     && schedule.getDate().getDayOfMonth() == Integer.parseInt(day)){
-                scheduleList.add(schedule);
+                return schedule;
             }
         }
-        return scheduleList.size() > 0 ? scheduleList:null;
+        return null;
     }
 
     @Override
