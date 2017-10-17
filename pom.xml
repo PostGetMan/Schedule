@@ -26,7 +26,12 @@
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
         <dozer.version>${dozer-spring.version}</dozer.version>
         <dozer-spring.version>5.5.1</dozer-spring.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <log4j-slf4j-impl.version>${log4j-api.version}</log4j-slf4j-impl.version>
+        <log4j-api.version>${log4j-core.version}</log4j-api.version>
+        <log4j-core.version>2.9.1</log4j-core.version>
     </properties>
+
 
     <build>
         <plugins>

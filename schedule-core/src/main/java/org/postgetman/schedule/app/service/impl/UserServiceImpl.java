@@ -1,6 +1,7 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.user.User;
+import org.postgetman.schedule.app.exception.UserNotFoundException;
 import org.postgetman.schedule.app.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,8 @@ public class UserServiceImpl implements UserService{
                 return u;
             }
         }
-        return null;
+
+        throw new UserNotFoundException("No such user");
     }
 
     @Override
@@ -45,7 +47,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteUser(Long id) {
-
+        userList.removeIf(user -> user.getId().equals(id));
     }
 
     @Override
