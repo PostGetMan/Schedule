@@ -6,7 +6,7 @@ import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.service.UserService;
 import org.postgetman.schedule.app.service.impl.UserServiceImpl;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UserServiceImplTest {

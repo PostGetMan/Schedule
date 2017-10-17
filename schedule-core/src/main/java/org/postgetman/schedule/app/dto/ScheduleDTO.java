@@ -1,41 +1,38 @@
 package org.postgetman.schedule.app.dto;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 public class ScheduleDTO {
 
-    private LocalDate date;
+    private String date;
 
-    private LocalTime timeFrom;
+    private String timeFrom;
 
-    private LocalTime timeTo;
+    private String timeTo;
 
     public ScheduleDTO(){
 
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public LocalTime getTimeFrom() {
+    public String getTimeFrom() {
         return timeFrom;
     }
 
-    public void setTimeFrom(LocalTime timeFrom) {
+    public void setTimeFrom(String timeFrom) {
         this.timeFrom = timeFrom;
     }
 
-    public LocalTime getTimeTo() {
+    public String getTimeTo() {
         return timeTo;
     }
 
-    public void setTimeTo(LocalTime timeTo) {
+    public void setTimeTo(String timeTo) {
         this.timeTo = timeTo;
     }
 }
