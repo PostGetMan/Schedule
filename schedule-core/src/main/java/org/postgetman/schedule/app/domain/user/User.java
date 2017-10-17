@@ -62,10 +62,5 @@ public class User extends SuperEntity{
         this.roles = roles;
     }
 
-    public void fillMedicalCard(UserCard card){
-        if(card != null){
-            this.userCard = card;
-        }
-    }
 
 }

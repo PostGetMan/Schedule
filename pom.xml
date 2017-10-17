@@ -18,6 +18,10 @@
         <java.version>1.8</java.version>
         <maven-war-plugin.version>3.1.0</maven-war-plugin.version>
         <junit.version>4.12</junit.version>
+        <spring-webmvc.version>${spring-context.version}</spring-webmvc.version>
+        <javax.servlet-api.version>4.0.0</javax.servlet-api.version>
+        <jackson-databind.version>2.9.2</jackson-databind.version>
+        <spring-context.version>4.3.12.RELEASE</spring-context.version>
     </properties>
 
     <build>
