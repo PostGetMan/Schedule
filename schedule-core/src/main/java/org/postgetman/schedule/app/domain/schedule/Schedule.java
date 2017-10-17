@@ -1,6 +1,5 @@
 package org.postgetman.schedule.app.domain.schedule;
 
-import org.postgetman.schedule.app.domain.Day;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
 import java.time.LocalDate;
@@ -22,9 +21,10 @@ public class Schedule extends SuperEntity{
 
     }
 
-    public Schedule(LocalTime timeFrom, LocalTime timeTo){
-        this.timeFrom = timeFrom;
-        this.timeTo = timeTo;
+    public Schedule(final String date,final String timeFrom,final String timeTo){
+        this.date = LocalDate.parse(date);
+        this.timeFrom = LocalTime.parse(timeFrom);
+        this.timeTo = LocalTime.parse(timeTo);
     }
 
     public LocalDate getDate() {

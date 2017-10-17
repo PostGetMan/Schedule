@@ -17,7 +17,7 @@ public class ScheduleTest {
 
     @Before
     public void setup(){
-        schedule = new Schedule(LocalTime.of(12,30),LocalTime.of(14,25));
+        schedule = new Schedule("2017-09-05","17:03","18:03");
     }
 
     @Test
