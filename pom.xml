@@ -24,6 +24,8 @@
         <spring-context.version>4.3.12.RELEASE</spring-context.version>
         <springfox-swagger2.version>${springfox-swagger-ui.version}</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
+        <dozer.version>${dozer-spring.version}</dozer.version>
+        <dozer-spring.version>5.5.1</dozer-spring.version>
     </properties>
 
     <build>

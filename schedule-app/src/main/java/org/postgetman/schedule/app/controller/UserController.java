@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserController extends BaseController{
 
     private UserService service = new UserServiceImpl();
 
@@ -21,7 +21,7 @@ public class UserController {
 
     @PostMapping
     public void save(@RequestBody UserDTO userDTO){
-
+        service.saveUser(convert(userDTO,User.class));
     }
 
 
