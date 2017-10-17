@@ -1,9 +1,11 @@
 package org.postgetman.schedule.app.service;
 
 import org.postgetman.schedule.app.domain.user.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface UserService {
 
     List<User> findAll();

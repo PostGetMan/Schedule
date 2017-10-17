@@ -24,5 +24,16 @@ public class UserController extends BaseController{
         service.saveUser(convert(userDTO,User.class));
     }
 
+    @GetMapping("/{email}")
+    public User findByEmail(@PathVariable("email")String email){
+        return service.findByEmail(email);
+    }
+
+    @DeleteMapping("/delete/{email}")
+    public void deleteUser(@PathVariable("email")String email){
+        service.deleteUser(email);
+    }
+
+
 
 }

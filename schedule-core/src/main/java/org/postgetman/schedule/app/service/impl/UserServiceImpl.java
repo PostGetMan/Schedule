@@ -2,10 +2,12 @@ package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.service.UserService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     private List<User> userList;

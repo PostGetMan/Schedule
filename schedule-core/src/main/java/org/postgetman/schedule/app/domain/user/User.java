@@ -54,6 +54,10 @@ public class User extends SuperEntity{
         return userCard;
     }
 
+    public void setUserCard(UserCard userCard) {
+        this.userCard = userCard;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -62,5 +66,27 @@ public class User extends SuperEntity{
         this.roles = roles;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
 
+        User user = (User) o;
+
+        if (!login.equals(user.login)) return false;
+        if (!password.equals(user.password)) return false;
+        if (!email.equals(user.email)) return false;
+        if (userCard != null ? !userCard.equals(user.userCard) : user.userCard != null) return false;
+        return roles.equals(user.roles);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = login.hashCode();
+        result = 31 * result + password.hashCode();
+        result = 31 * result + email.hashCode();
+        result = 31 * result + (userCard != null ? userCard.hashCode() : 0);
+        result = 31 * result + roles.hashCode();
+        return result;
+    }
 }
