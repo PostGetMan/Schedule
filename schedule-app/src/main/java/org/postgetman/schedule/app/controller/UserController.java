@@ -17,5 +17,10 @@ public class UserController {
         return service.findAll();
     }
 
+    @PostMapping
+    public void save(){
+
+    }
+
 
 }
