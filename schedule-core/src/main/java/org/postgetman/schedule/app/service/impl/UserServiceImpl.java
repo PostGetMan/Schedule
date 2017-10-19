@@ -3,6 +3,8 @@ package org.postgetman.schedule.app.service.impl;
 import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.exception.UserNotFoundException;
 import org.postgetman.schedule.app.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private List<User> userList;
 
@@ -24,7 +28,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findOne(Long id) {
-        return null;
+        for(User u : userList){
+            if(u.getId().equals(id)){
+                return u;
+            }
+        }
+
+        LOGGER.error("No user with id: {}",id);
+        throw new UserNotFoundException("No such user");
     }
 
     @Override
@@ -34,7 +45,7 @@ public class UserServiceImpl implements UserService{
                 return u;
             }
         }
-
+        LOGGER.error("There is no user with email: {}",email);
         throw new UserNotFoundException("No such user");
     }
 

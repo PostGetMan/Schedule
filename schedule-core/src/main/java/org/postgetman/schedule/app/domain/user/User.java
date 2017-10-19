@@ -2,7 +2,9 @@ package org.postgetman.schedule.app.domain.user;
 
 import org.postgetman.schedule.app.domain.Role;
 import org.postgetman.schedule.app.domain.SuperEntity;
+import org.postgetman.schedule.app.domain.schedule.Record;
 
+import java.util.List;
 import java.util.Set;
 
 public class User extends SuperEntity{
@@ -16,6 +18,8 @@ public class User extends SuperEntity{
     private UserCard userCard;
 
     private Set<Role> roles;
+
+    private List<Record> recordList;
 
     public User(){
 
@@ -64,6 +68,14 @@ public class User extends SuperEntity{
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<Record> getRecordList() {
+        return recordList;
+    }
+
+    public void setRecordList(List<Record> recordList) {
+        this.recordList = recordList;
     }
 
     @Override

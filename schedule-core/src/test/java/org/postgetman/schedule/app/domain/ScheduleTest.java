@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.postgetman.schedule.app.domain.schedule.Record;
 import org.postgetman.schedule.app.domain.schedule.Schedule;
-import org.postgetman.schedule.app.domain.user.User;
 
 import java.time.LocalTime;
 
@@ -22,7 +21,7 @@ public class ScheduleTest {
 
     @Test
     public void testAddRecordSuccess(){
-        Record record = new Record(new User("Papa","228"),LocalTime.of(14,15));
+        Record record = new Record("2017-09-28",LocalTime.of(14,15));
 
         schedule.addRecord(record);
 
@@ -31,7 +30,7 @@ public class ScheduleTest {
 
     @Test
     public void testEraseRecord(){
-        Record record = new Record(new User("Miwa","229"),LocalTime.of(15,34));
+        Record record = new Record("2017-09-28",LocalTime.of(15,34));
 
         schedule.addRecord(record);
         schedule.eraseRecord(record);
@@ -41,7 +40,7 @@ public class ScheduleTest {
 
     @Test
     public void testAddDuplicateRecord(){
-        Record record = new Record(new User("Miwa","229"),LocalTime.of(15,15));
+        Record record = new Record("2017-09-28",LocalTime.of(15,15));
 
         schedule.addRecord(record);
         schedule.addRecord(record);

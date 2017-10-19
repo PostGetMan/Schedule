@@ -1,13 +1,18 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.schedule.Schedule;
+import org.postgetman.schedule.app.domain.util.DateTimeUtil;
 import org.postgetman.schedule.app.service.ScheduleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleServiceImpl implements ScheduleService{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleServiceImpl.class);
 
     private List<Schedule> timeTable;
 
@@ -27,25 +32,31 @@ public class ScheduleServiceImpl implements ScheduleService{
                 return schedule;
             }
         }
+
+        LOGGER.error("No schedule with id: {}",id);
         return null;
     }
 
     @Override
     public Schedule findByDate(LocalDate date) {
+
+        for(Schedule schedule : timeTable){
+            if (schedule.getDate().equals(date)){
+                return schedule;
+            }
+        }
+
+
         return null;
     }
 
     @Override
     public Schedule findByDate(String date) {
 
-        String year = date.substring(0,4);
-        String month = date.substring(5,7);
-        String day = date.substring(8,date.length());
-
         for(Schedule schedule : timeTable){
-            if(schedule.getDate().getYear() == Integer.parseInt(year) &&
-                    schedule.getDate().getMonthValue() == Integer.parseInt(month)
-                    && schedule.getDate().getDayOfMonth() == Integer.parseInt(day)){
+            if(schedule.getDate().getYear() == DateTimeUtil.getYear(date) &&
+                    schedule.getDate().getMonthValue() == DateTimeUtil.getMonth(date)
+                    && schedule.getDate().getDayOfMonth() == DateTimeUtil.getDay(date)){
                 return schedule;
             }
         }
