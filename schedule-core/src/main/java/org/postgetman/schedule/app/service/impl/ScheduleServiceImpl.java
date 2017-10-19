@@ -2,6 +2,7 @@ package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.schedule.Schedule;
 import org.postgetman.schedule.app.domain.util.DateTimeUtil;
+import org.postgetman.schedule.app.exception.ScheduleNotFoundException;
 import org.postgetman.schedule.app.service.ScheduleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,8 +47,8 @@ public class ScheduleServiceImpl implements ScheduleService{
             }
         }
 
-
-        return null;
+        LOGGER.error("No schedule on this date: {}",date);
+        throw new ScheduleNotFoundException("Schedule does not exist");
     }
 
     @Override
@@ -60,7 +61,9 @@ public class ScheduleServiceImpl implements ScheduleService{
                 return schedule;
             }
         }
-        return null;
+
+        LOGGER.error("No schedule on this date: {}",date);
+        throw new ScheduleNotFoundException("Schedule does not exist");
     }
 
     @Override
