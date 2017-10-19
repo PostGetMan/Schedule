@@ -49,4 +49,5 @@ public class ScheduleServiceImplTest {
         assertEquals(service.findByDate("1997-08-29").getTimeFrom().getHour(),17);
     }
 
+
 }

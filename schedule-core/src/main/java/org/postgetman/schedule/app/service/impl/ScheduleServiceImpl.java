@@ -74,12 +74,14 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
+    public void updateSchedule(Schedule schedule) {
+
+    }
+
+    @Override
     public void removeSchedule(Long id) {
         timeTable.removeIf(schedule -> schedule.getId().equals(id));
     }
 
-    @Override
-    public void removeSchedule(LocalDate date) {
-        timeTable.removeIf(schedule -> schedule.getDate().equals(date));
-    }
+
 }

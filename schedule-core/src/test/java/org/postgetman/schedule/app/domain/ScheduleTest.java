@@ -5,8 +5,6 @@ import org.junit.Test;
 import org.postgetman.schedule.app.domain.schedule.Record;
 import org.postgetman.schedule.app.domain.schedule.Schedule;
 
-import java.time.LocalTime;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -21,7 +19,7 @@ public class ScheduleTest {
 
     @Test
     public void testAddRecordSuccess(){
-        Record record = new Record("2017-09-28",LocalTime.of(14,15));
+        Record record = new Record("2017-09-28","14:15");
 
         schedule.addRecord(record);
 
@@ -30,7 +28,7 @@ public class ScheduleTest {
 
     @Test
     public void testEraseRecord(){
-        Record record = new Record("2017-09-28",LocalTime.of(15,34));
+        Record record = new Record("2017-09-28","15:34");
 
         schedule.addRecord(record);
         schedule.eraseRecord(record);
@@ -40,7 +38,7 @@ public class ScheduleTest {
 
     @Test
     public void testAddDuplicateRecord(){
-        Record record = new Record("2017-09-28",LocalTime.of(15,15));
+        Record record = new Record("2017-09-28","15:15");
 
         schedule.addRecord(record);
         schedule.addRecord(record);

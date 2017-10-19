@@ -20,9 +20,9 @@ public class Record extends SuperEntity{
 
     }
 
-    public Record(final String date, LocalTime time){
+    public Record(final String date, final String time){
         this.date = LocalDate.parse(date);
-        this.time = time;
+        this.time = LocalTime.parse(time);
     }
 
     public Schedule getSchedule() {

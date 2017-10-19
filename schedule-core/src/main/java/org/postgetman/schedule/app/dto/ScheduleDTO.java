@@ -12,6 +12,7 @@ public class ScheduleDTO {
 
     }
 
+
     public String getDate() {
         return date;
     }
