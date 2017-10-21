@@ -20,5 +20,7 @@ public interface UserService {
 
     void deleteUser(final String email);
 
+    boolean isExist(User user);
+
     boolean isRegister();
 }

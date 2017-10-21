@@ -1,6 +1,7 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.user.User;
+import org.postgetman.schedule.app.exception.UserAlreadyExist;
 import org.postgetman.schedule.app.exception.UserNotFoundException;
 import org.postgetman.schedule.app.service.UserService;
 import org.slf4j.Logger;
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void saveUser(User user) {
-        if(!userList.contains(user)){
+        if(!userList.contains(user) && !isExist(user)){
             userList.add(user);
         }
     }
@@ -64,6 +65,19 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUser(String email) {
         userList.removeIf(user -> user.getEmail().equals(email));
+    }
+
+    @Override
+    public boolean isExist(User user) {
+        for(User u : userList){
+            if(u.getEmail().equals(user.getEmail()) ||
+                    u.getLogin().equalsIgnoreCase(user.getLogin())){
+
+                LOGGER.error("User already exist");
+                throw new UserAlreadyExist("User already exist with that loogin or email");
+            }
+        }
+        return false;
     }
 
     @Override

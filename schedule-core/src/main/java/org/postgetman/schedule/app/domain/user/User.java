@@ -86,7 +86,6 @@ public class User extends SuperEntity{
         User user = (User) o;
 
         if (!login.equals(user.login)) return false;
-        if (!password.equals(user.password)) return false;
         if (!email.equals(user.email)) return false;
         if (userCard != null ? !userCard.equals(user.userCard) : user.userCard != null) return false;
         return roles.equals(user.roles);

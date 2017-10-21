@@ -1,7 +1,6 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.schedule.Schedule;
-import org.postgetman.schedule.app.domain.util.DateTimeUtil;
 import org.postgetman.schedule.app.exception.ScheduleNotFoundException;
 import org.postgetman.schedule.app.service.ScheduleService;
 import org.slf4j.Logger;
@@ -55,9 +54,7 @@ public class ScheduleServiceImpl implements ScheduleService{
     public Schedule findByDate(String date) {
 
         for(Schedule schedule : timeTable){
-            if(schedule.getDate().getYear() == DateTimeUtil.getYear(date) &&
-                    schedule.getDate().getMonthValue() == DateTimeUtil.getMonth(date)
-                    && schedule.getDate().getDayOfMonth() == DateTimeUtil.getDay(date)){
+            if(schedule.getDate().equals(LocalDate.parse(date))){
                 return schedule;
             }
         }
