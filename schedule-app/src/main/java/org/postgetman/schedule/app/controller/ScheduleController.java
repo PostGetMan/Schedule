@@ -25,10 +25,14 @@ public class ScheduleController extends BaseController{
     }
 
     @GetMapping("/{date}")
-    public Schedule findByDate(@PathVariable("date")String date){
+    public Schedule findByDate(@PathVariable("date") final String date){
         return service.findByDate(date);
     }
 
+    @DeleteMapping("/delete/{date}")
+    public void delete(@PathVariable ("date") final String date){
+        service.removeSchedule(date);
+    }
 
 
 

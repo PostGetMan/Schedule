@@ -80,5 +80,10 @@ public class ScheduleServiceImpl implements ScheduleService{
         timeTable.removeIf(schedule -> schedule.getId().equals(id));
     }
 
+    @Override
+    public void removeSchedule(String date) {
+        timeTable.removeIf(schedule -> schedule.getDate().equals(LocalDate.parse(date)));
+    }
+
 
 }

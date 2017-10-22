@@ -1,5 +1,8 @@
 package org.postgetman.schedule.app.domain.schedule;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
 import java.time.LocalDate;
@@ -7,6 +10,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Schedule extends SuperEntity{
 
     private LocalDate date;
@@ -25,38 +31,6 @@ public class Schedule extends SuperEntity{
         this.date = LocalDate.parse(date);
         this.timeFrom = LocalTime.parse(timeFrom);
         this.timeTo = LocalTime.parse(timeTo);
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTimeFrom() {
-        return timeFrom;
-    }
-
-    public void setTimeFrom(LocalTime timeFrom) {
-        this.timeFrom = timeFrom;
-    }
-
-    public LocalTime getTimeTo() {
-        return timeTo;
-    }
-
-    public void setTimeTo(LocalTime timeTo) {
-        this.timeTo = timeTo;
-    }
-
-    public List<Record> getRecords() {
-        return records;
-    }
-
-    public void setRecords(List<Record> records) {
-        this.records = records;
     }
 
     public void addRecord(Record record){

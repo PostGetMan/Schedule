@@ -21,5 +21,7 @@ public interface ScheduleService {
 
     void removeSchedule(Long id);
 
+    void removeSchedule(String  date);
+
 
 }
