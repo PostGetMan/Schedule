@@ -1,7 +1,6 @@
 package org.postgetman.schedule.app.domain.schedule;
 
 import org.postgetman.schedule.app.domain.SuperEntity;
-import org.postgetman.schedule.app.domain.user.User;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,8 +10,6 @@ public class Record extends SuperEntity{
     private Schedule schedule;
 
     private LocalDate date;
-
-    private User patient;
 
     private LocalTime time;
 
@@ -39,14 +36,6 @@ public class Record extends SuperEntity{
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public User getPatient() {
-        return patient;
-    }
-
-    public void setPatient(User patient) {
-        this.patient = patient;
     }
 
     public LocalTime getTime() {

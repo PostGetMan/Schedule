@@ -5,27 +5,28 @@ import lombok.Getter;
 import lombok.Setter;
 import org.postgetman.schedule.app.domain.Role;
 import org.postgetman.schedule.app.domain.SuperEntity;
-import org.postgetman.schedule.app.domain.schedule.Record;
 
-import java.util.List;
-import java.util.Set;
+import javax.persistence.*;
 
 @Setter
 @Getter
 @EqualsAndHashCode
+@Entity
+@Table(name = "users")
 public class User extends SuperEntity{
 
+    @Column(name = "login")
     private String login;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "email")
     private String email;
 
-    private UserCard userCard;
-
-    private Set<Role> roles;
-
-    private List<Record> recordList;
+    @ManyToOne
+    @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "ROLE_ID_FK"))
+    private Role role;
 
     public User(){
 

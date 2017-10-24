@@ -3,7 +3,7 @@ package org.postgetman.schedule.app.controller;
 import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.dto.UserDTO;
 import org.postgetman.schedule.app.service.UserService;
-import org.postgetman.schedule.app.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +12,8 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController extends BaseController{
 
-    private UserService service = new UserServiceImpl();
+    @Autowired
+    private UserService service;
 
     @GetMapping
     public List<User> findAll(){
@@ -24,15 +25,21 @@ public class UserController extends BaseController{
         service.saveUser(convert(userDTO,User.class));
     }
 
-    @GetMapping("/{email}")
-    public User findByEmail(@PathVariable("email")String email){
+    @GetMapping("/{id}")
+    public User findOne(@PathVariable(name = "id") final Long id){
+        return service.findOne(id);
+    }
+
+    @GetMapping("/email/{email}")
+    public User findByEmail(@PathVariable("email") final String email){
         return service.findByEmail(email);
     }
 
-    @DeleteMapping("/delete/{email}")
-    public void deleteUser(@PathVariable("email")String email){
-        service.deleteUser(email);
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable("id")final Long id){
+        service.deleteUser(id);
     }
+
 
 
 
