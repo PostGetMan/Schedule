@@ -36,7 +36,7 @@ public class UserController extends BaseController{
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable("id")final Long id){
+    public void deleteUser(@PathVariable("id") Long id){
         service.deleteUser(id);
     }
 

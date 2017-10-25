@@ -20,5 +20,4 @@ public interface UserService {
 
     boolean isExist(User user);
 
-    boolean isRegister();
 }

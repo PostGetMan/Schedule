@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService{
                 return u;
             }
         }
-
         LOGGER.error("No user with id: {}",id);
         throw new UserNotFoundException("No such user");
     }
@@ -57,12 +56,11 @@ public class UserServiceImpl implements UserService{
         if(!isExist(user)) {
             userRepository.save(user);
         }
-        throw new UserAlreadyExist("User with that name or email already exist");
     }
 
     @Override
     public void deleteUser(Long id) {
-        userRepository.findAll().removeIf(user -> user.getId().equals(id));
+        userRepository.deleteById(id);
     }
 
     @Override
@@ -78,8 +76,4 @@ public class UserServiceImpl implements UserService{
         return false;
     }
 
-    @Override
-    public boolean isRegister() {
-        return false;
-    }
 }
