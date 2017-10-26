@@ -2,6 +2,7 @@ package org.postgetman.schedule.app.controller;
 
 import org.dozer.Mapper;
 import org.postgetman.schedule.app.dto.ErrorDTO;
+import org.postgetman.schedule.app.exception.ScheduleAlreadyExist;
 import org.postgetman.schedule.app.exception.ScheduleNotFoundException;
 import org.postgetman.schedule.app.exception.UserAlreadyExist;
 import org.postgetman.schedule.app.exception.UserNotFoundException;
@@ -37,5 +38,11 @@ public class BaseController {
     @ExceptionHandler(UserAlreadyExist.class)
     public ErrorDTO handleError(UserAlreadyExist u){
         return new ErrorDTO("Exception has occured" + u.getMessage());
+    }
+
+    @ResponseStatus(value = HttpStatus.CONFLICT,reason = "Schedule already exist")
+    @ExceptionHandler(ScheduleAlreadyExist.class)
+    public ErrorDTO handleError(ScheduleAlreadyExist s){
+        return new ErrorDTO("Exception has occured" + s.getMessage());
     }
 }

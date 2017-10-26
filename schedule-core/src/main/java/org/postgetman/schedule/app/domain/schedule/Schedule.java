@@ -5,23 +5,30 @@ import lombok.Getter;
 import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode
+@Entity
+@Table(name = "schedules")
 public class Schedule extends SuperEntity{
 
+    @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "timeFrom")
     private LocalTime timeFrom;
 
+    @Column(name = "timeTo")
     private LocalTime timeTo;
 
-    private List<Record> records;
+//    @OneToMany(orphanRemoval = true,fetch = FetchType.EAGER)
+//    private List<Record> records;
 
     public Schedule(){
 
@@ -33,18 +40,4 @@ public class Schedule extends SuperEntity{
         this.timeTo = LocalTime.parse(timeTo);
     }
 
-    public void addRecord(Record record){
-        if(records == null){
-            records = new ArrayList<>();
-        }
-        if(!records.contains(record)){
-            records.add(record);
-        }
-    }
-
-    public void eraseRecord(Record record){
-        if(records.contains(record)){
-            records.remove(record);
-        }
-    }
 }

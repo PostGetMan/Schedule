@@ -1,16 +1,27 @@
 package org.postgetman.schedule.app.domain.schedule;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Getter
+@Setter
+@Entity
+@Table(name = "records")
 public class Record extends SuperEntity{
 
+    @ManyToOne
+    @JoinColumn(name = "schedule_id",nullable = false, foreignKey = @ForeignKey(name = "SCHEDULE_ID_FK"))
     private Schedule schedule;
 
+    @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "time")
     private LocalTime time;
 
     public Record(){
@@ -22,27 +33,5 @@ public class Record extends SuperEntity{
         this.time = LocalTime.parse(time);
     }
 
-    public Schedule getSchedule() {
-        return schedule;
-    }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
 }

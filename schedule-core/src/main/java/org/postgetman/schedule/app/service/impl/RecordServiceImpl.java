@@ -12,8 +12,9 @@ public class RecordServiceImpl implements RecordService{
 
     @Override
     public List<Record> findAll(final String date) {
-        return scheduleService.findByDate(date).getRecords();
+        return null;
     }
+
 
     @Override
     public Record findOne() {
@@ -22,7 +23,6 @@ public class RecordServiceImpl implements RecordService{
 
     @Override
     public void addrecord(Record record) {
-        scheduleService.findByDate(record.getDate()).addRecord(record);
     }
 
     @Override
