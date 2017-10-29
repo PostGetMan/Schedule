@@ -1,5 +1,6 @@
 package org.postgetman.schedule.app.domain.schedule;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,7 +28,8 @@ public class Schedule extends SuperEntity{
     @Column(name = "timeTo")
     private LocalTime timeTo;
 
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnore
+    @OneToMany(mappedBy = "schedule",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Record> records = new ArrayList<>();
 
     public Schedule(){
