@@ -75,13 +75,17 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
-    public void updateSchedule(Schedule schedule) {
+    public void updateSchedule(Long id,Schedule schedule) {
 
     }
 
     @Override
     public void removeSchedule(Long id) {
-        scheduleRepository.deleteById(id);
+        if(findOne(id) != null){
+            scheduleRepository.deleteById(id);
+        }
+        LOGGER.error("No schedule with id: {}",id);
+        throw new ScheduleNotFoundException("Schedule does not exist");
     }
 
     @Override

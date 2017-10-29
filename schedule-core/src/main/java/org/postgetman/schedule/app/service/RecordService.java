@@ -8,9 +8,9 @@ public interface RecordService {
 
     List<Record> findAll(String date);
 
-    Record findOne();
+    Record findOne(Long id);
 
-    void addrecord(Record record);
+    void addRecord(Record record);
 
     void deleteRecord(Long id);
 }

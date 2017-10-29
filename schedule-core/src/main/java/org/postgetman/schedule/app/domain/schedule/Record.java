@@ -11,11 +11,10 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "records")
+@Table(name="records")
 public class Record extends SuperEntity{
 
-    @ManyToOne
-    @JoinColumn(name = "schedule_id",nullable = false, foreignKey = @ForeignKey(name = "SCHEDULE_ID_FK"))
+    @ManyToOne(targetEntity = Schedule.class,cascade = CascadeType.ALL)
     private Schedule schedule;
 
     @Column(name = "date")

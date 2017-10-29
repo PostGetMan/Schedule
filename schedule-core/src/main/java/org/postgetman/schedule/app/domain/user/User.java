@@ -15,6 +15,9 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User extends SuperEntity{
 
+    @Column(name="fullname")
+    private String fullName;
+
     @Column(name = "login")
     private String login;
 
@@ -28,6 +31,9 @@ public class User extends SuperEntity{
     @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "ROLE_ID_FK"))
     private Role role;
 
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private UserProfile userProfile;
+
     public User(){
 
     }
@@ -36,7 +42,5 @@ public class User extends SuperEntity{
         this.login = login;
         this.email = email;
     }
-
-
 
 }

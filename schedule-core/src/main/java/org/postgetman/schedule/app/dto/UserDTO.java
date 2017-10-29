@@ -2,6 +2,8 @@ package org.postgetman.schedule.app.dto;
 
 public class UserDTO {
 
+    private String fullName;
+
     private String login;
 
     private String password;
@@ -10,6 +12,14 @@ public class UserDTO {
 
     public UserDTO(){
 
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getLogin() {

@@ -69,8 +69,8 @@ public class UserServiceImpl implements UserService{
             if(u.getEmail().equals(user.getEmail()) ||
                     u.getLogin().equalsIgnoreCase(user.getLogin())){
 
-                LOGGER.error("User already exist");
-                throw new UserAlreadyExist("User already exist with that loogin or email");
+                LOGGER.error("User already exist with that login or email");
+                throw new UserAlreadyExist("User already exist with that login or email");
             }
         }
         return false;

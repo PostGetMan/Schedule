@@ -17,10 +17,10 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableTransactionManagement
 @PropertySource("classpath:schedule.properties")
 @ComponentScan(basePackages = "org.postgetman.schedule.app.service.*")
 @EnableJpaRepositories("org.postgetman.schedule.app.repository")
+@EnableTransactionManagement
 public class RootContextConfiguration {
 
     private static final String PROP_DATABASE_DRIVER = "db.driver";
