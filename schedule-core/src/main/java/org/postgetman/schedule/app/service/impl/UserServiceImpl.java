@@ -1,8 +1,8 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.user.User;
-import org.postgetman.schedule.app.exception.UserAlreadyExist;
-import org.postgetman.schedule.app.exception.UserNotFoundException;
+import org.postgetman.schedule.app.exception.AlreadyExistException;
+import org.postgetman.schedule.app.exception.NotFoundException;
 import org.postgetman.schedule.app.repository.UserRepository;
 import org.postgetman.schedule.app.service.UserService;
 import org.slf4j.Logger;
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
             }
         }
         LOGGER.error("No user with id: {}",id);
-        throw new UserNotFoundException("No such user");
+        throw new NotFoundException("No such user");
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
             }
         }
         LOGGER.error("There is no user with email: {}",email);
-        throw new UserNotFoundException("No such user");
+        throw new NotFoundException("No such user");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService{
                     u.getLogin().equalsIgnoreCase(user.getLogin())){
 
                 LOGGER.error("User already exist with that login or email");
-                throw new UserAlreadyExist("User already exist with that login or email");
+                throw new AlreadyExistException("User already exist with that login or email");
             }
         }
         return false;

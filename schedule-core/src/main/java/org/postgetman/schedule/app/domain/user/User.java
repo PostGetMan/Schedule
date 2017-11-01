@@ -31,8 +31,8 @@ public class User extends SuperEntity{
     @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "ROLE_ID_FK"))
     private Role role;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private UserProfile userProfile;
+//    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private UserProfile userProfile;
 
     public User(){
 

@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface RecordService {
 
-    List<Record> findAll(String date);
+    List<Record> findAll();
+
+    List<Record> findAllByDate(String date);
 
     Record findOne(Long id);
 

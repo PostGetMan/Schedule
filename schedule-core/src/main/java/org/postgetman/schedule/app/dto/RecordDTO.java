@@ -1,28 +1,20 @@
 package org.postgetman.schedule.app.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class RecordDTO {
 
     private String date;
 
     private String time;
 
+    private String complaint;
+
     public RecordDTO(){
 
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 }

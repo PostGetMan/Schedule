@@ -1,8 +1,8 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.schedule.Schedule;
-import org.postgetman.schedule.app.exception.ScheduleAlreadyExist;
-import org.postgetman.schedule.app.exception.ScheduleNotFoundException;
+import org.postgetman.schedule.app.exception.AlreadyExistException;
+import org.postgetman.schedule.app.exception.NotFoundException;
 import org.postgetman.schedule.app.repository.ScheduleRepository;
 import org.postgetman.schedule.app.service.ScheduleService;
 import org.slf4j.Logger;
@@ -31,40 +31,40 @@ public class ScheduleServiceImpl implements ScheduleService{
 
     @Override
     public Schedule findOne(Long id) {
-        for(Schedule schedule : scheduleRepository.findAll()){
+        for(Schedule schedule : findAll()){
             if(schedule.getId().equals(id)){
                 return schedule;
             }
         }
 
         LOGGER.error("No schedule with id: {}",id);
-        throw new ScheduleNotFoundException("Schedule does not exist");
+        throw new NotFoundException("Schedule does not exist");
     }
 
     @Override
     public Schedule findByDate(LocalDate date) {
 
-        for(Schedule schedule : scheduleRepository.findAll()){
+        for(Schedule schedule : findAll()){
             if (schedule.getDate().equals(date)){
                 return schedule;
             }
         }
 
         LOGGER.error("No schedule on this date: {}",date);
-        throw new ScheduleNotFoundException("Schedule does not exist");
+        throw new NotFoundException("Schedule does not exist");
     }
 
     @Override
     public Schedule findByDate(String date) {
 
-        for(Schedule schedule : scheduleRepository.findAll()){
+        for(Schedule schedule : findAll()){
             if(schedule.getDate().equals(LocalDate.parse(date))){
                 return schedule;
             }
         }
 
         LOGGER.error("No schedule on this date: {}",date);
-        throw new ScheduleNotFoundException("Schedule does not exist");
+        throw new NotFoundException("Schedule does not exist");
     }
 
     @Override
@@ -85,15 +85,15 @@ public class ScheduleServiceImpl implements ScheduleService{
             scheduleRepository.deleteById(id);
         }
         LOGGER.error("No schedule with id: {}",id);
-        throw new ScheduleNotFoundException("Schedule does not exist");
+        throw new NotFoundException("Schedule does not exist");
     }
 
     @Override
     public boolean isExist(Schedule schedule) {
         for(Schedule s : scheduleRepository.findAll()){
             if(s.getDate().equals(schedule.getDate())){
-                LOGGER.error("Schedule already exist");
-                throw new ScheduleAlreadyExist("Schedule already exist");
+                LOGGER.error("Schedule already exist for this date");
+                throw new AlreadyExistException("Schedule already exist");
             }
         }
 
