@@ -3,6 +3,7 @@ package org.postgetman.schedule.app.controller;
 import org.postgetman.schedule.app.domain.schedule.Schedule;
 import org.postgetman.schedule.app.dto.ScheduleDTO;
 import org.postgetman.schedule.app.service.ScheduleService;
+import org.postgetman.schedule.app.util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class ScheduleController extends BaseController{
 
     @PostMapping
     public void creteSchedule(@RequestBody ScheduleDTO scheduleDTO){
-        service.createSchedule(new Schedule(scheduleDTO.getDate(),scheduleDTO.getTimeFrom(),scheduleDTO.getTimeTo()));
+        service.createSchedule(ConvertUtil.convertSchedule(scheduleDTO));
     }
 
     @GetMapping("/{date}")

@@ -1,0 +1,132 @@
+*,body,html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background: url(../img/3.jpg) fixed; */
+    background-size: cover;
+
+}
+
+.header{
+    height: 8vh;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    padding: 3px;
+
+}
+
+.logo {
+    height: 8vh;
+    width: 150px;
+    outline: 1px solid black;
+    cursor: pointer;
+    float: left;
+}
+
+.navbar {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style-type: none;
+
+}
+
+.navbar li {
+    float:left;
+    height: 8vh;
+    line-height: 8vh;
+    margin: 0 10px;
+
+}
+
+.navbar li:hover {
+    border-bottom: 4px solid #00ccff;
+
+}
+.navbar li a {
+    text-decoration: none;
+    color: white;
+
+
+}
+.container {
+
+    height: 92vh;
+    display: flex;
+
+}
+
+.reg-form {
+    margin: auto;
+
+}
+
+.login input,
+.fullname input,
+.password input,
+.confirm-password input,
+.from input,
+.email input {
+    height: 35px;
+    width: 250px;
+
+}
+
+.fullname input{
+    margin-bottom: 5px;:
+}
+.password input {
+    margin-top: 15px;
+
+}
+
+.confirm-password input{
+    margin-top: 5px;
+}
+
+.email input {
+
+    margin-top: 10px;
+}
+
+.submit-register input {
+    margin-top: 15px;
+    width: 100px;
+    height: 40px;
+
+    background:  #009933;
+
+
+    border:1px solid #003366;
+    color:black;
+    box-shadow: 0 0 5px 1px #ffffff;
+    transition: text-shadow .3s ease 0s;
+
+}
+
+.submit-register input:hover  {
+    cursor: pointer;
+    text-shadow: 0 0 5px  white;
+    transition: text-shadow .1s ease 0s;
+}
+
+.submit-register input:active {
+    box-shadow: inset 0 0 20px 1px #3b679e ;
+}
+
+.contact-form{
+    margin: auto;
+}
+
+.contact-container{
+    height: 92vh;
+    display: flex;
+}
+
+.message {
+    margin-top: 15px;
+}

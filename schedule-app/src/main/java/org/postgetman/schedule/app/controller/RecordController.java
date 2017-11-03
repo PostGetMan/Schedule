@@ -1,9 +1,9 @@
 package org.postgetman.schedule.app.controller;
 
 import org.postgetman.schedule.app.domain.schedule.Record;
-import org.postgetman.schedule.app.domain.util.ConvertUtil;
 import org.postgetman.schedule.app.dto.RecordDTO;
 import org.postgetman.schedule.app.service.RecordService;
+import org.postgetman.schedule.app.util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

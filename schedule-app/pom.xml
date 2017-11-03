@@ -62,11 +62,19 @@
             <version>${dozer-spring.version}</version>
         </dependency>
 
+        <!-- Servlet-Api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- ThymeLeaf-->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>3.0.7.RELEASE</version>
         </dependency>
     </dependencies>
 

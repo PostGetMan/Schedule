@@ -28,7 +28,7 @@ public class User extends SuperEntity{
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "ROLE_ID_FK"))
+    @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "role_id_fk"))
     private Role role;
 
 //    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
