@@ -21,7 +21,7 @@ import java.io.IOException;
 @EnableWebMvc
 @ComponentScan(basePackages = "org.postgetman.schedule.app.controller")
 @Import(SwaggerConfiguration.class)
-public class ServletConfiguration extends WebMvcConfigurerAdapter{
+public class ServletConfiguration extends WebMvcConfigurerAdapter {
 
 //    @Override
 //    public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -34,6 +34,8 @@ public class ServletConfiguration extends WebMvcConfigurerAdapter{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
+        registry.addResourceHandler("/img/**").addResourceLocations("/resources/img/");
     }
 
     @Bean

@@ -12,8 +12,10 @@ public class FrontController extends BaseController{
         return "index";
     }
 
-    @RequestMapping(value = "/register",method = RequestMethod.GET)
-    public String register(){
-        return "register";
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String loginForm(){
+        return "signin";
     }
+
+
 }

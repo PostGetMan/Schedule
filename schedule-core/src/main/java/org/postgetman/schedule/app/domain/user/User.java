@@ -29,7 +29,7 @@ public class User extends SuperEntity{
 
     @ManyToOne
     @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "role_id_fk"))
-    private Role role;
+    private Role role = new Role(1L);
 
 //    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private UserProfile userProfile;

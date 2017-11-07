@@ -2,9 +2,12 @@ package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.schedule.Record;
 import org.postgetman.schedule.app.domain.schedule.Schedule;
+import org.postgetman.schedule.app.exception.NotFoundException;
 import org.postgetman.schedule.app.repository.RecordRepository;
 import org.postgetman.schedule.app.service.RecordService;
 import org.postgetman.schedule.app.service.ScheduleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,7 @@ import java.util.List;
 @Service
 public class RecordServiceImpl implements RecordService{
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(RecordServiceImpl.class);
     @Autowired
     private ScheduleService scheduleService;
 
@@ -40,7 +44,13 @@ public class RecordServiceImpl implements RecordService{
 
     @Override
     public Record findOne(Long id) {
-        return null;
+        for(Record record : findAll()){
+            if(record.getId().equals(id)){
+                return record;
+            }
+        }
+        LOGGER.error("No record with id: {}",id);
+        throw new NotFoundException("No such record");
     }
 
     @Override

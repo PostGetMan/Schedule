@@ -23,8 +23,10 @@ public class Role extends SuperEntity{
 
     }
 
-    public Role(final String name){
-        this.name = name;
+    public Role(final Long id){
+        this.setId(id);
     }
+
+
 
 }
