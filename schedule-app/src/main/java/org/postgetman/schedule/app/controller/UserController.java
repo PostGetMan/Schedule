@@ -30,9 +30,9 @@ public class UserController extends BaseController{
         return service.findOne(id);
     }
 
-    @GetMapping("/email/{email}")
-    public User findByEmail(@PathVariable("email") final String email){
-        return service.findByEmail(email);
+    @GetMapping("/login/{login}")
+    public User findByLogin(@PathVariable("login") final String login){
+        return service.findByLogin(login);
     }
 
     @DeleteMapping("/delete/{id}")

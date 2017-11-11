@@ -15,16 +15,16 @@
             <ul class="navbar">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a th:href="@{/register}">Register</a></li>
+                <li><a>Contact</a></li>
             </ul>
         </div>
     
       <div class="login-card">
         <h1>Sign in</h1><br>
-        <form>
-          <input type="text" name="user" placeholder="Login">
-          <input type="password" name="pass" placeholder="Password">
+        <form th:action="@{/login}" th:object="${login}" method="post">
+          <input type="text" name="user" th:field="*{userName}" placeholder="Login">
+          <input type="password" name="pass" th:field="*{password}" placeholder="Password">
           <input type="submit" name="login" class="login login-submit" value="LOGIN">
         </form>
 

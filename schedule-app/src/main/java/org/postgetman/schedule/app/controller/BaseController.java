@@ -20,7 +20,7 @@ public class BaseController {
         return mapper.map(source,resultClass);
     }
 
-    @ResponseStatus(value = HttpStatus.NOT_FOUND,reason = "Resource does not exist")
+    @ResponseStatus(value = HttpStatus.NOT_FOUND,reason = "Resource does not exist or access denied")
     @ExceptionHandler(NotFoundException.class)
     public ErrorDTO handleError(NotFoundException e){
         return new ErrorDTO("Exception has occured" + e.getMessage());

@@ -29,6 +29,6 @@ public class RegistrationController extends BaseController{
 
         userService.saveUser(convert(userDTO,User.class));
 
-        return "result";
+        return "reg_success";
     }
 }

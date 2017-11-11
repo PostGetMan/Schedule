@@ -137,11 +137,6 @@ body {
 }
 
 
-
-
-
-
-
 .login-card {
 
     padding: 40px;
@@ -149,7 +144,7 @@ body {
     background-color: rgba(247, 247, 247, .7);
     margin: 5% auto 10px;
     border-radius: 2px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
@@ -204,18 +199,18 @@ body {
 
 .login-submit {
     /* border: 1px solid #3079ed; */
-    border: 0px;
+    border: 0;
     color: #fff;
     text-shadow: 0 1px rgba(0,0,0,0.1);
-    background-color: #4d90fe;
+    background-color: #ff4d88;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
 .login-submit:hover {
     /* border: 1px solid #2f5bb7; */
-    border: 0px;
+    border: 0;
     text-shadow: 0 1px rgba(0,0,0,0.3);
-    background-color: #357ae8;
+    background-color: #ff3377;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 }
 
@@ -238,5 +233,15 @@ body {
     width: 100%;
     text-align: center;
     font-size: 12px;
+}
+
+.reg-message {
+    margin-top: 25%;
+    text-align: center;
+
+}
+
+.reg-message h1 {
+    line-height: 2em;
 }
 

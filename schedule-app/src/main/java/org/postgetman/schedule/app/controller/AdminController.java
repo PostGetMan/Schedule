@@ -8,21 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ScheduleController extends BaseController{
+public class AdminController extends BaseController{
 
     @Autowired
-    private ScheduleService service;
+    private ScheduleService scheduleService;
 
     @RequestMapping(value = "/admin/schedule",method = RequestMethod.GET)
-    public String displaySchedule(Model model){
-        model.addAttribute("admin_schedule",service.findAll());
+    public String getShedule(Model model){
 
+        model.addAttribute("admin_schedule",scheduleService.findAll());
         return "schedule";
     }
-
-
-
-
-
-
 }

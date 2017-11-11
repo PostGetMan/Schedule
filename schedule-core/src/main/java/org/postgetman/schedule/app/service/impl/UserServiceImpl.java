@@ -1,6 +1,7 @@
 package org.postgetman.schedule.app.service.impl;
 
 import org.postgetman.schedule.app.domain.user.User;
+import org.postgetman.schedule.app.dto.LoginDTO;
 import org.postgetman.schedule.app.exception.AlreadyExistException;
 import org.postgetman.schedule.app.exception.NotFoundException;
 import org.postgetman.schedule.app.repository.UserRepository;
@@ -41,13 +42,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User findByEmail(String email) {
+    public User findByLogin(final String login) {
         for(User u : userRepository.findAll()){
-            if(u.getEmail().equals(email)){
+            if(u.getEmail().equals(login)){
                 return u;
             }
         }
-        LOGGER.error("There is no user with email: {}",email);
+        LOGGER.error("There is no user with login: {}",login);
         throw new NotFoundException("No such user");
     }
 
@@ -66,7 +67,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean isExist(User user) {
         for(User u : userRepository.findAll()){
-            if(u.getEmail().equals(user.getEmail()) ||
+            if(u.getPassword().equals(user.getPassword()) ||
                     u.getLogin().equalsIgnoreCase(user.getLogin())){
 
                 LOGGER.error("User already exist with that login or email");
@@ -74,6 +75,18 @@ public class UserServiceImpl implements UserService{
             }
         }
         return false;
+    }
+
+    @Override
+    public User validateUser(LoginDTO loginDTO) {
+        for(User u : userRepository.findAll()){
+            if(u.getLogin().equalsIgnoreCase(loginDTO.getUserName())
+                    && u.getPassword().equalsIgnoreCase(loginDTO.getPassword())){
+                    return u;
+            }
+        }
+        LOGGER.error("No user with that login and password");
+        return null;
     }
 
 }

@@ -38,9 +38,9 @@ public class User extends SuperEntity{
 
     }
 
-    public User(final String login,final String email){
+    public User(final String login,final String password){
         this.login = login;
-        this.email = email;
+        this.password = password;
     }
 
 }

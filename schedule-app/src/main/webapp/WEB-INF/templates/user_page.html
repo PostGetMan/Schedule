@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Welcome</title>
+</head>
+    <body>
+        <h1 th:text="Welcome + ' ' + ${fullname}"></h1>
+        <ul class="user-actions">
+            <li><a href="#">View Profile</a></li>
+            <li><a href="#">Appointment</a></li>
+            <li><a href="#">Show Records</a></li>
+            <li><a href="#">Log Out</a></li>
+
+        </ul>
+    </body>
+</html>
