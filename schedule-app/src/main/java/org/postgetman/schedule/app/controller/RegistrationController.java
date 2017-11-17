@@ -2,6 +2,7 @@ package org.postgetman.schedule.app.controller;
 
 import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.dto.UserDTO;
+import org.postgetman.schedule.app.service.UserProfileService;
 import org.postgetman.schedule.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ public class RegistrationController extends BaseController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserProfileService profileService;
+
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register(Model model){
         model.addAttribute("user",new UserDTO());
@@ -29,6 +33,6 @@ public class RegistrationController extends BaseController{
 
         userService.saveUser(convert(userDTO,User.class));
 
-        return "reg_success";
+        return "redirect:/success";
     }
 }

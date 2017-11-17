@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,6 +13,7 @@ import java.time.LocalDate;
 public class UserProfile extends SuperEntity{
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id",foreignKey = @ForeignKey(name = "user_id_fk"))
     private User user;
 
     @Column(name="firstname")
@@ -22,22 +22,21 @@ public class UserProfile extends SuperEntity{
     @Column(name="lastname")
     private String lastName;
 
-    @Column(name = "birthday")
-    private LocalDate birthday;
+    @Column(name = "age")
+    private int age;
 
     @Column(name = "adress")
     private String adress;
 
     @Column(name = "phone")
-    private int phone;
+    private String phone;
 
     public UserProfile(){
 
     }
 
-    public UserProfile(final String firstName, final String lastName, String birthday){
-        this.firstName = firstName;
-        this.birthday = LocalDate.parse(birthday);
+    public UserProfile(User user){
+        this.user = user;
     }
 
 

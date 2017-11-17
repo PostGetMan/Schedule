@@ -12,10 +12,14 @@ public class FrontController extends BaseController{
         return "index";
     }
 
+    @RequestMapping(value = "/deny",method = RequestMethod.GET)
+    public String deny(){
+        return "deny";
+    }
 
-    @RequestMapping(value = "/admin",method = RequestMethod.GET)
-    public String admin(){
-        return "admin_page";
+    @RequestMapping(value = "/success",method = RequestMethod.GET)
+    public String success(){
+        return "reg_success";
     }
 
 

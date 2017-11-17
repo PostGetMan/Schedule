@@ -13,10 +13,10 @@ public class AdminController extends BaseController{
     @Autowired
     private ScheduleService scheduleService;
 
-    @RequestMapping(value = "/admin/schedule",method = RequestMethod.GET)
+    @RequestMapping(value = "/admin",method = RequestMethod.GET)
     public String getShedule(Model model){
 
         model.addAttribute("admin_schedule",scheduleService.findAll());
-        return "schedule";
+        return "admin_page";
     }
 }

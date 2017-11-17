@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService{
     public void saveUser(User user) {
         if(!isExist(user)) {
             userRepository.save(user);
+            LOGGER.info("Save user to db!");
         }
     }
 
@@ -67,7 +68,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean isExist(User user) {
         for(User u : userRepository.findAll()){
-            if(u.getPassword().equals(user.getPassword()) ||
+            if(u.getEmail().equals(user.getEmail()) ||
                     u.getLogin().equalsIgnoreCase(user.getLogin())){
 
                 LOGGER.error("User already exist with that login or email");

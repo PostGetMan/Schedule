@@ -27,12 +27,18 @@ public class LoginController extends BaseController{
     public String loginProcess(@ModelAttribute("login") LoginDTO loginDTO,Model model){
         User user = userService.validateUser(loginDTO);
 
-        if(user != null && user.getRole().getName().equalsIgnoreCase("user")){
+        if(user != null && user.getRole().getName().equals("user")){
             model.addAttribute("fullname",user.getFullName());
+
             return "user_page";
         }
+        if(user != null && user.getRole().getName().equals("admin")){
+            return "redirect:/admin";
+        }
 
-        return "deny";
+        return "redirect:/deny";
 
     }
+
+
 }
