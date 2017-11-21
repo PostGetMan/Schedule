@@ -2,7 +2,6 @@ package org.postgetman.schedule.app.controller;
 
 import org.postgetman.schedule.app.domain.user.User;
 import org.postgetman.schedule.app.dto.UserDTO;
-import org.postgetman.schedule.app.service.UserProfileService;
 import org.postgetman.schedule.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RegistrationController extends BaseController{
 
-    @Autowired
     private UserService userService;
 
     @Autowired
-    private UserProfileService profileService;
+    public RegistrationController(UserService userService){
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register(Model model){

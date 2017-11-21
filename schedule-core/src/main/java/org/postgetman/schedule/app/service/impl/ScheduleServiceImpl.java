@@ -18,10 +18,12 @@ public class ScheduleServiceImpl implements ScheduleService{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleServiceImpl.class);
 
-    @Autowired
+
     private ScheduleRepository scheduleRepository;
 
-    public ScheduleServiceImpl(){
+    @Autowired
+    public ScheduleServiceImpl(ScheduleRepository scheduleRepository){
+        this.scheduleRepository = scheduleRepository;
     }
 
     @Override

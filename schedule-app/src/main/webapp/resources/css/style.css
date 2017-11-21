@@ -8,7 +8,6 @@
 
 body {
     background: url(/resources/img/bgc1.jpeg) no-repeat;
-    /* background: url(../img/3.jpg) fixed; */
     background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
@@ -16,8 +15,6 @@ body {
 .header{
     height: 8vh;
     background-color: black;
-    /*position: fixed;*/
-
     padding: 3px;
 
 }
@@ -31,13 +28,10 @@ body {
 }
 
 .navbar {
-
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     list-style-type: none;
-
-
 }
 
 .navbar li {
@@ -191,10 +185,6 @@ body {
     font-family: 'Arial', sans-serif;
     font-weight: 700;
     height: 36px;
-
-    /* border-radius: 3px; */
-    /* -webkit-user-select: none;
-      user-select: none; */
 }
 
 .login-submit {
@@ -245,3 +235,22 @@ body {
     line-height: 2em;
 }
 
+
+table {
+
+    width: 400px;
+    margin: 0 auto;
+    background: white;
+    border: 2px solid black;
+}
+
+.user-actions {
+    position: absolute;
+    right:0;
+
+}
+
+.user-actions li a{
+    text-decoration: none;
+    color: black;
+}

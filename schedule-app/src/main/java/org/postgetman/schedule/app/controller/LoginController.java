@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController extends BaseController{
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public LoginController(UserService userService){
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String loginForm(Model model){
