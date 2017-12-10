@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController extends BaseController{
 
@@ -28,20 +31,33 @@ public class LoginController extends BaseController{
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String loginProcess(@ModelAttribute("login") LoginDTO loginDTO,Model model){
+    public String loginProcess(@ModelAttribute("login") LoginDTO loginDTO, Model model,
+                               HttpServletRequest request, HttpSession session){
+
         User user = userService.validateUser(loginDTO);
 
         if(user != null && user.getRole().getName().equals("user")){
+            session = request.getSession();
+            session.setAttribute("id",user.getId());
+
             model.addAttribute("fullname",user.getFullName());
 
             return "user_page";
         }
+
         if(user != null && user.getRole().getName().equals("admin")){
             return "redirect:/admin";
         }
 
         return "redirect:/deny";
 
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logOut(HttpServletRequest request){
+        request.getSession().invalidate();
+
+        return "redirect:/login";
     }
 
 

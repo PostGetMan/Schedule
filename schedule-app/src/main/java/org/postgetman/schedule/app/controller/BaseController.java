@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class BaseController {
 
+    private Mapper mapper;
+
     @Autowired
-    public Mapper mapper;
+    public void setMapper(final Mapper mapper){
+        this.mapper = mapper;
+    }
 
     protected <T,R> R convert(T source, Class<R> resultClass) {
         return mapper.map(source,resultClass);
