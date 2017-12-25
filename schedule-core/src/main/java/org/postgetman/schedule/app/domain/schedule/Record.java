@@ -3,11 +3,9 @@ package org.postgetman.schedule.app.domain.schedule;
 import lombok.Getter;
 import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
+import org.postgetman.schedule.app.domain.user.User;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,9 +17,6 @@ import java.time.LocalTime;
 @Table(name="records")
 public class Record extends SuperEntity{
 
-    @ManyToOne
-    private Schedule schedule;
-
     @Column(name = "date")
     private LocalDate date;
 
@@ -30,6 +25,10 @@ public class Record extends SuperEntity{
 
     @Column(name = "complaint")
     private String complaint;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(columnDefinition = "text",name = "fullname",referencedColumnName = "fullname")
+    private User fullname;
 
     public Record(){
 

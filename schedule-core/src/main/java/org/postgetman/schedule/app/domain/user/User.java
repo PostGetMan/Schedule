@@ -5,18 +5,21 @@ import lombok.Getter;
 import lombok.Setter;
 import org.postgetman.schedule.app.domain.Role;
 import org.postgetman.schedule.app.domain.SuperEntity;
+import org.postgetman.schedule.app.domain.schedule.Record;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
 @EqualsAndHashCode
 @Entity
 @Table(name = "users")
-public class User extends SuperEntity{
+public class User extends SuperEntity implements Serializable{
 
     @Column(name="fullname")
-    private String fullName;
+    private String fullname;
 
     @Column(name = "login")
     private String login;
@@ -31,8 +34,8 @@ public class User extends SuperEntity{
     @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "role_id_fk"))
     private Role role = new Role(1L);
 
-//    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    private UserProfile userProfile;
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Record> recordList;
 
     public User(){
 
@@ -41,6 +44,11 @@ public class User extends SuperEntity{
     public User(final String login,final String password){
         this.login = login;
         this.password = password;
+    }
+
+    @Override
+    public String toString(){
+        return fullname;
     }
 
 }

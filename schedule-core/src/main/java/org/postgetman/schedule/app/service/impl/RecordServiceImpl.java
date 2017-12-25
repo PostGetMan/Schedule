@@ -55,12 +55,12 @@ public class RecordServiceImpl implements RecordService{
 
     @Override
     public void addRecord(Record record) {
-        Schedule schedule = scheduleService.findByDate(record.getDate());
-
-        if(schedule != null){
-            schedule.addRecord(record);
-        }
-        recordRepository.save(record);
+//        Schedule schedule = scheduleService.findByDate(record.getDate());
+//
+//        if(schedule != null){
+//            schedule.addRecord(record);
+//        }
+//        recordRepository.save(record);
     }
 
     @Override

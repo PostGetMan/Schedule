@@ -1,6 +1,7 @@
 package org.postgetman.schedule.app.controller;
 
 import org.postgetman.schedule.app.dto.ScheduleDTO;
+import org.postgetman.schedule.app.service.RecordService;
 import org.postgetman.schedule.app.service.ScheduleService;
 import org.postgetman.schedule.app.util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,13 @@ public class AdminController extends BaseController{
 
     private ScheduleService scheduleService;
 
+    private RecordService recordService;
+
+    @Autowired
+    public void setRecordService(RecordService recordService){
+        this.recordService = recordService;
+    }
+
     @Autowired
     public AdminController(ScheduleService scheduleService){
         this.scheduleService = scheduleService;
@@ -24,14 +32,14 @@ public class AdminController extends BaseController{
     public String getShedule(Model model){
 
         model.addAttribute("admin_schedule",scheduleService.findAll());
-        return "admin_page";
+        return "admin/admin_page";
     }
 
     @RequestMapping(value = "/admin/create",method = RequestMethod.GET)
     public String createSchedule(Model model){
         model.addAttribute("schedule",new ScheduleDTO());
 
-        return "create_schedule";
+        return "admin/create_schedule";
     }
 
     @RequestMapping(value = "/admin/create",method = RequestMethod.POST)
@@ -42,4 +50,13 @@ public class AdminController extends BaseController{
 
         return "redirect:/admin";
     }
+
+    @RequestMapping(value = "/admin/records",method = RequestMethod.GET)
+    public String showRecords(Model model){
+        model.addAttribute("records",recordService.findAll());
+
+        return "admin/records";
+    }
+
+
 }

@@ -24,7 +24,7 @@ public class RegistrationController extends BaseController{
     public String register(Model model){
         model.addAttribute("user",new UserDTO());
 
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)

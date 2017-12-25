@@ -13,6 +13,8 @@ public class RecordDTO {
 
     private String complaint;
 
+    private String fullname;
+
     public RecordDTO(){
 
     }

@@ -32,25 +32,22 @@ public class LoginController extends BaseController{
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String loginProcess(@ModelAttribute("login") LoginDTO loginDTO, Model model,
-                               HttpServletRequest request, HttpSession session){
+                               HttpServletRequest request){
 
         User user = userService.validateUser(loginDTO);
 
         if(user != null && user.getRole().getName().equals("user")){
-            session = request.getSession();
-            session.setAttribute("id",user.getId());
+            HttpSession session = request.getSession();
+            session.setAttribute("fullname",user.getFullname());
 
-            model.addAttribute("fullname",user.getFullName());
+            model.addAttribute("fullname",session.getAttribute("fullname"));
 
-            return "user_page";
-        }
-
-        if(user != null && user.getRole().getName().equals("admin")){
+            return "user/user_page";
+        }else if(user != null && user.getRole().getName().equals("admin")){
             return "redirect:/admin";
         }
 
         return "redirect:/deny";
-
     }
 
     @RequestMapping(value = "/logout",method = RequestMethod.GET)

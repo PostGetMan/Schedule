@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.postgetman.schedule.app.domain.SuperEntity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,8 +27,8 @@ public class Schedule extends SuperEntity{
     @Column(name = "timeTo")
     private LocalTime timeTo;
 
-    @OneToMany(mappedBy = "schedule",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Record> records;
+//    @OneToMany(mappedBy = "schedule",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = true)
+//    private List<Record> records;
 
     public Schedule(){
     }
@@ -39,14 +39,14 @@ public class Schedule extends SuperEntity{
         this.timeTo = LocalTime.parse(timeTo);
     }
 
-    public void addRecord(Record record){
-        if(records == null){
-            records = new ArrayList<>();
-        }
-        if(!records.contains(record) && record != null){
-            records.add(record);
-        }
-    }
+//    public void addRecord(Record record){
+//        if(records == null){
+//            records = new ArrayList<>();
+//        }
+//        if(!records.contains(record) && record != null){
+//            records.add(record);
+//        }
+//    }
 
 
 

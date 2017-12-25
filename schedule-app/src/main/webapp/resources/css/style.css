@@ -43,8 +43,7 @@ body {
 }
 
 .navbar li:hover {
-    border-bottom: 4px solid #00ccff;
-
+    border-bottom: 4px solid #4b7b99;
 }
 .navbar li a {
     text-decoration: none;
@@ -192,7 +191,7 @@ body {
     border: 0;
     color: #fff;
     text-shadow: 0 1px rgba(0,0,0,0.1);
-    background-color: #ff4d88;
+    background-color: #647a88;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
@@ -200,8 +199,9 @@ body {
     /* border: 1px solid #2f5bb7; */
     border: 0;
     text-shadow: 0 1px rgba(0,0,0,0.3);
-    background-color: #ff3377;
+    background-color: #4b7b99;
     /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+    /* previous #ff3377*/
 }
 
 .login-card a {
@@ -246,10 +246,43 @@ table {
 
 .user-actions {
     position: absolute;
-    right:0;
+    right:20px;
+    top:115px;
+    list-style-type:none;
 }
 
 .user-actions li a{
     text-decoration: none;
     color: black;
+}
+
+.user-actions li:hover{
+    list-style-type:disc;
+    color:#fff;
+}
+
+
+.back {
+    margin-top: 30px;
+}
+
+.logo {
+    position:relative;
+    bottom:12px;
+}
+
+.auth_user {
+    position: absolute;
+    right:20px;
+}
+
+.auth_user::before {
+    display:inline-block;
+    content:'';
+    width:50px;
+    height:50px;
+    position:absolute;
+    right:130px;
+    background:url(../img/profile.png);
+
 }
